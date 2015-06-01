@@ -21,6 +21,20 @@ module HelloWorldTwilio
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    account_sid = 'ACa14dd09aacc2f2ee68c16774c07e291f'
+    auth_token = '3c62d46d586708fe9d3ff7b2ab7de484'
+    
+    @client = Twilio::REST::Client.new account_sid, auth_token
+
+
+    Twilio.configure do |config|
+     config.account_sid = account_sid
+     config.auth_token = auth_token
+    end
+
+
     config.active_record.raise_in_transactional_callbacks = true
+    
   end
 end
